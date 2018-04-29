@@ -1,3 +1,5 @@
+# coding=utf-8
+
 myStr = 'Hello'
 myInt = 25
 myFloat = 12.4
@@ -13,6 +15,12 @@ print(type(myList), myList)
 print(type(myDict), myDict)
 
 print(myDict['a'])
+
+# assert expression 等价于
+# if not expression:
+#     raise AssertionError
+# myStr 不是int所以这里会抛出错误
+assert type(myStr) == int
 
 
 # this is wrong: myDict.a
