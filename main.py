@@ -9,6 +9,7 @@ from case.TestSearchPage import TestSearchPage
 reload(sys)
 sys.setdefaultencoding("utf-8")
 
+# https://www.freecodecamp.org/chinese/news/if-name-main-python-example/
 if __name__ == '__main__':
     # TestSearchPage('testSearch')
     # 构造测试集
