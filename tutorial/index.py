@@ -1,6 +1,7 @@
 # coding=utf-8
 import traceback
 import asyncio
+import time
 
 # 基础类型
 print('\n基础类型*****************************************')
@@ -152,3 +153,34 @@ def testScope2():
   outter = 11
 testScope2()
 print('testScope2 outter:', outter) ## 11
+
+# 异步编程
+print('\n异步编程*****************************************')
+
+## 默认情况下 python 是同步执行
+def count():
+  print('one')
+  time.sleep(1)
+  print('two')
+
+def loopFn():
+  print('\nloopFn start...')
+  ## 相当于 Promise.all，等待所有任务完成  
+  for _ in range(3):
+    count()
+  print('loopFn end...')
+
+loopFn()
+
+async def count2():
+  print('one')
+  await asyncio.sleep(1)
+  print('two')
+
+async def asyncFn():
+  print('\nasyncFn start...')
+  ## 相当于 Promise.all，等待所有任务完成  
+  await asyncio.gather(count2(), count2(), count2())
+  print('asyncFn end...')
+
+asyncio.run(asyncFn())
